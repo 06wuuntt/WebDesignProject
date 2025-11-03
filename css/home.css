@@ -1,0 +1,60 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: "Manrope", "Noto Sans TC", sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background: #F6F7F8;
+    font-size: 16px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 15rem;
+    border-right: 1px, solid, #bbbbbb;
+    background-color: #FFFFFF;
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #627D8A;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #627D8A;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.menu-links a:hover {
+    background: rgba(10, 75, 120, 0.08);
+}
+
+.menu-links i {
+    margin-right: 10px;
+    width: 18px;
+    text-align: center;
+}
