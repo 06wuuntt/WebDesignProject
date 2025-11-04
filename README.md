@@ -6,8 +6,8 @@
 
 ## 進度追蹤 Progress Tracking
 1. 北科課程首頁 (NTUT Course Homepage)
-   - [ ] 導覽列（首頁、114 學年班級課表、課程查詢...）
-   - [ ] 首頁 main-container
+   - [x] 導覽列（首頁、114 學年班級課表、課程查詢...）
+   - [x] 首頁 main-container
 
 2. 班級課表頁面 (Class Schedule)
    - [ ] 學院列表

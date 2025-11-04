@@ -1,257 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>北科課程系統</title>
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北科課程系統</title>
+    <link rel="stylesheet" href="css/home.css">
+    <!-- 匯入字體 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!-- aside part -->
+    <aside class="sidebar">
+        <h2><a href="index.html">北科課程系統</a></h2>
+        <nav class="menu-links">
+            <a href="index.html"><i class="fa-solid fa-house"></i> 首頁</a>
+            <a href="#"><i class="fa-solid fa-search"></i> 課程查詢</a>
+            <a href="#"><i class="fa-solid fa-school"></i> 班級課表</a>
+            <a href="#"><i class="fa-solid fa-calendar-days"></i> 行事曆</a>
+        </nav>
+    </aside>
 
-  <!-- 側邊欄 -->
-  <aside class="sidebar">
-    <h2>北科課程系統</h2>
-    <nav class="menu-links">
-      <a href="#"><i class="fa-solid fa-house"></i> 首頁</a>
-      <a href="#"><i class="fa-solid fa-search"></i> 課程查詢</a>
-      <a href="#"><i class="fa-solid fa-table"></i> 班級課表</a>
-      <a href="#"><i class="fa-solid fa-calendar-days"></i> 行事曆</a>
-    </nav>
-  </aside>
-
-  <!-- 主內容 -->
-  <div class="main-content">
-
-    <header>
-      <h1>首頁</h1>
-      <nav class="breadcrumb">
-        <span>首頁</span>
-      </nav>
-    </header>
-
-    <main>
-
-      <section class="semester">
-        <h2>114 上學期</h2>
-        <p>歡迎來到台北科技大學課程系統，當前學期為 <strong>114 上學期</strong></p>
-      </section>
-
-      <section class="card-list">
-        <div class="card">
-          <i class="fa-solid fa-calendar-days"></i>
-          <div>
-            <h3>學校行事曆</h3>
-          </div>
+    <div class="main-content">
+        <select name="semester" id="semester" class="semester">
+            <option value="1141" selected>114 上學期</option>
+            <option value="1132">113 下學期</option>
+            <option value="1131">113 上學期</option>
+            <option value="1122">112 下學期</option>
+            <option value="1121">112 上學期</option>
+        </select>
+        <hr>
+        <header class="header">
+            <h1>首頁</h1>
+            <p class="introduce">歡迎來到台北科技大學課程系統，當前學期為 <strong id="current-semester">114 上學期</strong></p>
+        </header>
+        
+        <div class="block">
+            <i class="fa-solid fa-book-open"></i>
+            <span class="title">課程專區</span>
+            <hr>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-header">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h4>課程查詢</h4>
+                    </div>
+                    <p class="course-introduce">輸入關鍵字以查詢特定課程</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <i class="fa-solid fa-school"></i>
+                        <h4>班級課表</h4>
+                    </div>
+                    <p class="course-introduce">查詢開課班級的課程列表</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h4>微學程</h4>
+                    </div>
+                    <p class="course-introduce">查詢當學期所有微學程的開課資訊</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <h4>課程標準</h4>
+                    </div>
+                    <p class="course-introduce">查詢特定入學學期之課程標準資訊</p>
+                </div>
+            </div>           
         </div>
 
-        <div class="card">
-          <i class="fa-solid fa-book-open"></i>
-          <div>
-            <h3>課程專區</h3>
-            <ul>
-              <li><a href="#">課程查詢</a> — 輸入關鍵字以查詢特定課程</li>
-              <li><a href="#">班級課表</a> — 查詢開課班級的課程列表</li>
-              <li><a href="#">微學程</a> — 查詢當學期所有微學程的開課資訊</li>
-              <li><a href="#">課程標準</a> — 查詢特定入學學期之課程標準資訊</li>
-            </ul>
-          </div>
+        <div class="grid2">
+            <div class="block">
+                <i class="fa-solid fa-link"></i>
+                <span class="title">常用連結</span>
+                <hr>
+                <div class="linkcard">
+                    <a href="https://nportal.ntut.edu.tw/index.do?thetime=1761978968598" target="_blank">
+                        <div class="card-item">
+                            <span class="text">北科校園入口網站</span>
+                            <i class="fa-solid fa-up-right-from-square"></i>  
+                        </div>
+                    </a>
+                    <a href="https://www.ntut.edu.tw/" target="_blank">
+                        <div class="card-item">
+                            <span class="text">北科校園首頁</span>
+                            <i class="fa-solid fa-up-right-from-square"></i>  
+                        </div>
+                    </a>
+                    <a href="https://lib.ntut.edu.tw/mp.asp?mp=100" target="_blank">
+                        <div class="card-item">
+                            <span class="text">台北科技大學圖書館</span>
+                            <i class="fa-solid fa-up-right-from-square"></i> 
+                        </div>
+                    </a>
+                    <a href="https://oaa.ntut.edu.tw/p/412-1008-15509.php?Lang=zh-tw" target="_blank">
+                        <div class="card-item">
+                            <span class="text">跨域學習專區</span>
+                            <i class="fa-solid fa-up-right-from-square"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="block">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span class="title">學校行事曆</span>
+                <hr>
+                <div class="calendercard">
+                    <span></span>
+                </div>
+            </div>
+
         </div>
+    </div>
 
-        <div class="card">
-          <i class="fa-solid fa-link"></i>
-          <div>
-            <h3>常用連結</h3>
-            <ul>
-              <li><a href="https://nportal.ntut.edu.tw/index.do?thetime=1761978968598">北科校園入口網站</a></li>
-              <li><a href="https://www.ntut.edu.tw/">學校首頁</a></li>
-              <li><a href="https://lib.ntut.edu.tw/mp.asp?mp=100">台北科技大學圖書館</a></li>
-              <li><a href="https://oaa.ntut.edu.tw/p/412-1008-15509.php?Lang=zh-tw">跨域學習專區</a></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      北科課程系統 ｜ Copyright © 2025
-    </footer>
-
-  </div>
+    <script src="js/main.js"></script>
 </body>
 </html>
-
-<!-- <style>
-  body {
-    margin: 0;
-    font-family: "Noto Sans TC", sans-serif;
-    display: flex;
-    min-height: 100vh;
-    background: #f7fafc;
-    color: #111;
-  }
-
-  .sidebar {
-    width: 240px;
-    background: #fff;
-    border-right: 1px solid #ddd;
-    padding: 24px 16px;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-  }
-
-  .sidebar h2 {
-    text-align: center;
-    color: #0a4b78;
-    margin: 0 0 20px 0;
-    font-size: 1.5rem;
-  }
-
-  .menu-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .menu-links a {
-    text-decoration: none;
-    color: #0a4b78;
-    padding: 10px 14px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    transition: background 0.2s;
-  }
-
-  .menu-links a:hover {
-    background: rgba(10, 75, 120, 0.08);
-  }
-
-  .menu-links i {
-    margin-right: 10px;
-    width: 18px;
-    text-align: center;
-  }
-
-  .main-content {
-    margin-left: 240px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    box-sizing: border-box;
-    padding: 24px;
-  }
-
-  header {
-    max-width: 800px;
-    margin: 0 auto 24px;
-    width: 100%;
-    text-align: center;
-  }
-
-  header h1 {
-    color: #0a4b78;
-    margin-bottom: 8px;
-    font-size: 1.8rem;
-  }
-
-  .breadcrumb {
-    text-align: center;
-    color: #666;
-    font-size: 0.9rem;
-  }
-
-  main {
-    flex: 1;
-    max-width: 800px;
-    margin: 0 auto;
-    width: 100%;
-    padding-bottom: 60px;
-  }
-
-  .semester h2 {
-    color: #0a4b78;
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-  }
-
-  .semester p {
-    color: #444;
-    margin-bottom: 24px;
-  }
-
-  .card-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 16px 20px;
-    text-align: left;
-    color: rgb(98, 98, 98);
-    width: 100%;
-    transition: transform 0.2s;
-  }
-
-  .card:hover {
-    transform: translateY(-2px);
-  }
-
-  .card i {
-    color: #0a4b78;
-    margin-right: 10px;
-  }
-
-  .card h3 {
-    color: #0a4b78;
-    margin-bottom: 6px;
-  }
-
-  .card ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-  }
-
-  .card ul li {
-    margin-bottom: 6px;
-  }
-
-  .card a {
-    color: #0a4b78;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .card a:hover {
-    text-decoration: underline;
-  }
-
-  footer {
-    background: #fff;
-    border-top: 1px solid #ddd;
-    text-align: center;
-    padding: 12px 0;
-    color: #666;
-    width: calc(100% - 240px);
-    position: fixed;
-    bottom: 0;
-    left: 240px;
-    box-sizing: border-box;
-    font-size: 0.95rem;
-  }
-</style> -->

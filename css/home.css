@@ -1,5 +1,7 @@
-*, *:before, *:after {
-    box-sizing: inherit;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
 body {
@@ -14,23 +16,38 @@ body {
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 150px;
     width: 15rem;
-    border-right: 1px, solid, #bbbbbb;
+    /* 240px */
+    border-right: 1px solid #EDEEF1;
     background-color: #FFFFFF;
     padding: 1.5rem 1rem;
     box-sizing: border-box;
-    position: fixed;
-    top: 0;
+    height: auto;
+    position: sticky;
+    /* top: 0;
     left: 0;
-    bottom: 0;
+    bottom: 0; */
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
 }
 
 .sidebar h2 {
     text-align: center;
     color: #627D8A;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 1.5rem;
+    text-decoration: none;
 }
 
 .menu-links {
@@ -43,18 +60,233 @@ body {
     text-decoration: none;
     color: #627D8A;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    font-weight: 400;
+    font-weight: 500;
     border-radius: 8px;
     padding: 10px 14px;
 }
 
 .menu-links a:hover {
-    background: rgba(10, 75, 120, 0.08);
+    background: rgba(14, 108, 175, 0.08);
 }
 
 .menu-links i {
     margin-right: 10px;
     width: 18px;
     text-align: center;
+}
+
+.main-content {
+    flex: 1 1 auto;
+    margin: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Custom dropdown (replacement for native popup) */
+.custom-select {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.custom-selected {
+    background: #C9DFEA url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23627D8A' d='M0 0l5 6 5-6z'/></svg>") no-repeat right 10px center/10px 6px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 14px;
+    min-width: 160px;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    cursor: pointer;
+    color: #0f1724;
+}
+
+.custom-selected:focus {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(14, 108, 175, 0.06);
+}
+
+.custom-options {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 8px 0 0 0;
+    padding: 6px 0;
+    list-style: none;
+    background: #ffffff;
+    /* white background */
+    border-radius: 12px;
+    /* rounded corners */
+    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+    max-height: 240px;
+    overflow: auto;
+    z-index: 30;
+    border: none;
+    /* no border */
+    display: none;
+}
+
+.custom-select.open .custom-options {
+    display: block;
+}
+
+.custom-option {
+    padding: 10px 12px;
+    cursor: pointer;
+    color: #263238;
+}
+
+.custom-option[aria-selected="true"],
+
+.custom-option:hover {
+    background: rgba(14, 108, 175, 0.06);
+    border-radius: 8px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    margin: 2rem 0;
+    background: #E0E0E0;
+}
+
+.block i {
+    color: #64748B;
+    margin-right: 0.5rem;
+}
+
+.block hr {
+    margin: 20px 0;
+}
+
+.header h1 {
+    margin-top: 50px;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+}
+
+.introduce {
+    color: #888888;
+    margin-top: 0;
+    margin-bottom: 70px;
+    font-weight: 400;
+}
+
+.title {
+    /* padding: 12px; */
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #64748B
+}
+
+.block {
+    margin-bottom: 40px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 0;
+    gap: 1rem;
+}
+
+.course-card {
+    background-color: #f3f3f3;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.course-card:hover {
+    background: #c4dae5;
+    transform: translateY(-2px);
+}
+
+.course-card p {
+    margin: 0;
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+.course-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 35px;
+}
+
+.course-header h4 {
+    margin: 0;
+    color: #334155;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.course-introduce {
+    display: flex;
+    justify-content: center;
+    background-color: #FFFFFF;
+    padding: 35px 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.card-item {
+    display: flex;
+    background-color: #FFFFFF;
+    padding: 20px 15px;
+    text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    border-radius: 8px;
+}
+
+.card-item:hover {
+    background-color: #F3F4F6;
+}
+
+.card-item i {
+    color: #64748B;
+}
+
+.card-item span {
+    color: #334155;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.text {
+    color: #888888;
+}
+
+.calendercard {
+    background-color: #FFFFFF;
+    height: 256px;
+    border-radius: 8px;
 }
