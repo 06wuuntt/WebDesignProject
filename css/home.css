@@ -23,11 +23,10 @@ body {
     background-color: #FFFFFF;
     padding: 1.5rem 1rem;
     box-sizing: border-box;
-    height: auto;
+    height: 100vh;
     position: sticky;
-    /* top: 0;
+    top: 0;
     left: 0;
-    bottom: 0; */
 }
 
 a {
@@ -85,6 +84,8 @@ a:visited {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    margin-left: 15rem;
+    /* 與 sidebar 寬度相同 */
 }
 
 /* Custom dropdown (replacement for native popup) */
