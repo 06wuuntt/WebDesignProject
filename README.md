@@ -14,7 +14,5 @@
    - [x] 班級列表
 
 3. 光電系課程頁面 (Electro-Optical Engineering)
-   - [ ] 班級
-
-4. 光電二課表頁面 (Second Year EOE Schedule)
-   - [ ] 課表呈現方式 ?
+   - [x] 班級 
+   - [x] 課程列表
