@@ -1,5 +1,5 @@
 # NTUT Course Website Redesign - Midterm Report Progress
-
+Link: https://06wuuntt.github.io/WebDesignProject
 ## 專案概述 Project Overview
 - 主題：北科大課程網頁重新設計 (NTUT Course Website Redesign)
 - 目標：改善現有課程網頁的使用者體驗與介面設計
