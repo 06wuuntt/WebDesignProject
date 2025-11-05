@@ -38,11 +38,6 @@ a:hover {
     text-decoration: none;
 }
 
-a:link,
-a:visited {
-    color: inherit;
-}
-
 .sidebar h2 {
     text-align: center;
     color: #627D8A;

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>北科課程系統</title>
     <link rel="stylesheet" href="css/class.css">
+    <link rel="stylesheet" href="css/courselist.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,24 +31,44 @@
                 <a href="#"><i class="fa-solid fa-calendar-days"></i> 行事曆</a>
             </nav>
         </header>
+
+
         <div class="title">
-            <h1>班級總覽</h1>
-            <p class="introduce">依學院分類瀏覽全校所有班級開課課程，當前學期為 <strong id="current-semester">114 上學期</strong></p>
+            <a href="class.html">
+                <div class="back"><i class="fa-solid fa-caret-left"></i>回班級總覽</div>
+            </a>
+            <h1>課程列表</h1>
+            <p class="introduce">依系所瀏覽該系開課課程，當前學期為 <strong id="current-semester">114 上學期</strong></p>
         </div>
         <main class="main-content">
-            <div id="results"></div>
+            <div class="classbutton">
+                <button class="button" data-class="1">光電一</button>
+                <button class="button" data-class="2">光電二</button>
+                <button class="button" data-class="3">光電三</button>
+                <button class="button" data-class="4">光電四</button>
+            </div>
+
+            <div class="content-display" id="content-display">
+                <p style="text-align: center">點擊上方按鈕查看該班級的課程資訊</p>
+            </div>
         </main>
     </div>
     <footer class="footer">
-        <p>北科課程系統｜內容可能有誤，詳細資訊請參考<a href="https://aps.ntut.edu.tw/course/tw/course.jsp" target="_blank">台北科技大學課程系統</a></p>
+        <p>北科課程系統｜內容可能有誤，詳細資訊請參考<a href="https://aps.ntut.edu.tw/course/tw/course.jsp" target="_blank">台北科技大學課程系統</a>
+        </p>
     </footer>
 
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/semester-sync.js"></script>
-    <script src="js/class.js"></script>
+    <script src="js/courselist.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        // 按鈕點擊事件處理
+        
+    </script>
 </body>
 
 </html>

@@ -33,11 +33,16 @@ $(function () {
 
     function renderDepartmentList(data) {
         $('#results').empty();
+        console.log('API 返回的 department.json 數據:', data);
+
         // 轉成陣列
         var arr = Array.isArray(data) ? data : Object.values(data);
+        console.log('轉換後的陣列:', arr);
+
         // 依 category 分群
         var grouped = {};
         arr.forEach(function (item) {
+            console.log('處理項目:', item);
             var cat = item.category || '未分類';
             if (!grouped[cat]) grouped[cat] = [];
             grouped[cat].push(item);
@@ -48,10 +53,35 @@ $(function () {
             $card.append($('<h2/>').text(cat));
             var $classList = $('<div/>').addClass('class-list');
             grouped[cat].forEach(function (cls) {
-                var $cls = $('<a/>').attr('href', cls.href || '#')
-                    .attr('target', '_blank')
+                console.log('班級/系所數據:', cls);
+                // 獲取系所代碼，可能在不同的屬性名稱中
+                var deptCode = cls.id || cls.系所代碼 || cls.department_code || cls.code;
+
+                // 如果沒有找到系所代碼，嘗試從 href 中解析
+                if (!deptCode && cls.href) {
+                    var match = cls.href.match(/code=([^&]*)/);
+                    if (match && match[1]) {
+                        deptCode = match[1];
+                    }
+                }
+
+                console.log('系所代碼:', deptCode);
+
+                // 獲取科系名稱
+                var deptName = cls.name || cls.系所名稱 || '';
+                // 移除可能的「系」、「所」、「學位學程」等後綴，只保留簡稱
+                deptName = deptName.replace(/系$|所$|學位學程$|學程$/, '');
+
+                // 如果沒有系所代碼，則跳過
+                if (!deptCode) {
+                    console.warn('找不到系所代碼，跳過此項目:', cls);
+                    return;
+                }
+
+                var $cls = $('<a/>')
+                    .attr('href', 'courselist.html?dept=' + encodeURIComponent(deptCode) + '&name=' + encodeURIComponent(deptName))
                     .addClass('class-chip')
-                    .text(cls.name || '(未命名班級)');
+                    .text(cls.name || cls.系所名稱 || '(未命名班級)');
                 $classList.append($cls);
             });
             $card.append($classList);
