@@ -1,124 +1,136 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>北科課程系統</title>
-    <link rel="stylesheet" href="css/home.css">
-    <!-- 匯入字體 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>北科課程系統</title>
+  <link rel="stylesheet" href="css/home.css">
+  <!-- 匯入字體 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- aside part -->
-    <aside class="sidebar">
-        <h2>北科課程系統</h2>
-        <nav class="menu-links">
-            <a href="index.html"><i class="fa-solid fa-house"></i> 首頁</a>
-            <a href="#"><i class="fa-solid fa-search"></i> 課程查詢</a>
-            <a href="#"><i class="fa-solid fa-school"></i> 班級課表</a>
-            <a href="#"><i class="fa-solid fa-calendar-days"></i> 行事曆</a>
-        </nav>
-    </aside>
+  <!-- aside part -->
+  <aside class="sidebar">
+    <h2>北科課程系統</h2>
+    <nav class="menu-links">
+      <a href="index.html"><i class="fa-solid fa-house"></i> 首頁</a>
+      <a href="#"><i class="fa-solid fa-search"></i> 課程查詢</a>
+      <a href="class.html"><i class="fa-solid fa-school"></i> 班級課表</a>
+      <a href="#"><i class="fa-solid fa-calendar-days"></i> 行事曆</a>
+    </nav>
+  </aside>
 
-    <div class="main-content">
-        <select name="semester" id="semester" class="semester">
-            <option value="1141" selected>114 上學期</option>
-            <option value="1132">113 下學期</option>
-            <option value="1131">113 上學期</option>
-            <option value="1122">112 下學期</option>
-            <option value="1121">112 上學期</option>
-        </select>
-        <hr>
-        <header class="header">
-            <h1>首頁</h1>
-            <p class="introduce">歡迎來到台北科技大學課程系統，當前學期為 <strong id="current-semester">114 上學期</strong></p>
-        </header>
-        
-        <div class="block">
-            <i class="fa-solid fa-book-open"></i>
-            <span class="title">課程專區</span>
-            <hr>
-            <div class="course-grid">
-                <div class="course-card">
-                    <div class="course-header">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <h4>課程查詢</h4>
-                    </div>
-                    <p class="course-introduce">輸入關鍵字以查詢特定課程</p>
-                </div>
-                <div class="course-card">
-                    <div class="course-header">
-                        <i class="fa-solid fa-school"></i>
-                        <h4>班級課表</h4>
-                    </div>
-                    <p class="course-introduce">查詢開課班級的課程列表</p>
-                </div>
-                <div class="course-card">
-                    <div class="course-header">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <h4>微學程</h4>
-                    </div>
-                    <p class="course-introduce">查詢當學期所有微學程的開課資訊</p>
-                </div>
-                <div class="course-card">
-                    <div class="course-header">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <h4>課程標準</h4>
-                    </div>
-                    <p class="course-introduce">查詢特定入學學期之課程標準資訊</p>
-                </div>
-            </div>           
-        </div>
+  <div class="main-content">
+    <select name="semester" id="semester" class="semester">
+      <option value="1141" selected>114 上學期</option>
+      <option value="1132">113 下學期</option>
+      <option value="1131">113 上學期</option>
+      <option value="1122">112 下學期</option>
+      <option value="1121">112 上學期</option>
+    </select>
+    <hr>
+    <header class="header">
+      <h1>首頁</h1>
+      <p class="introduce">歡迎來到台北科技大學課程系統，當前學期為 <strong id="current-semester">114 上學期</strong></p>
+    </header>
 
-        <div class="grid2">
-            <div class="block">
-                <i class="fa-solid fa-link"></i>
-                <span class="title">常用連結</span>
-                <hr>
-                <div class="linkcard">
-                    <a href="https://nportal.ntut.edu.tw/index.do?thetime=1761978968598" target="_blank">
-                        <div class="card-item">
-                            <span class="text">北科校園入口網站</span>
-                            <i class="fa-solid fa-up-right-from-square"></i>  
-                        </div>
-                    </a>
-                    <a href="https://www.ntut.edu.tw/" target="_blank">
-                        <div class="card-item">
-                            <span class="text">北科校園首頁</span>
-                            <i class="fa-solid fa-up-right-from-square"></i>  
-                        </div>
-                    </a>
-                    <a href="https://lib.ntut.edu.tw/mp.asp?mp=100" target="_blank">
-                        <div class="card-item">
-                            <span class="text">台北科技大學圖書館</span>
-                            <i class="fa-solid fa-up-right-from-square"></i> 
-                        </div>
-                    </a>
-                    <a href="https://oaa.ntut.edu.tw/p/412-1008-15509.php?Lang=zh-tw" target="_blank">
-                        <div class="card-item">
-                            <span class="text">跨域學習專區</span>
-                            <i class="fa-solid fa-up-right-from-square"></i>
-                        </div>
-                    </a>
-                </div>
+    <div class="block">
+      <i class="fa-solid fa-book-open"></i>
+      <span class="title">課程專區</span>
+      <hr>
+      <div class="course-grid">
+        <a href="#">
+          <div class="course-card">
+            <div class="course-header">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <h4>課程查詢</h4>
             </div>
-
-            <div class="block">
-                <i class="fa-solid fa-calendar-days"></i>
-                <span class="title">學校行事曆</span>
-                <hr>
-                <div class="calendercard">
-                    <span></span>
-                </div>
+            <p class="course-introduce">輸入關鍵字以查詢特定課程</p>
+          </div>
+        </a>
+        <a href="class.html">
+          <div class="course-card">
+            <div class="course-header">
+              <i class="fa-solid fa-school"></i>
+              <h4>班級課表</h4>
             </div>
-
-        </div>
+            <p class="course-introduce">查詢開課班級的課程列表</p>
+          </div>
+        </a>
+        <a href="#">
+          <div class="course-card">
+            <div class="course-header">
+              <i class="fa-solid fa-chart-line"></i>
+              <h4>微學程</h4>
+            </div>
+            <p class="course-introduce">查詢當學期所有微學程的開課資訊</p>
+          </div>
+        </a>
+        <a href="#">
+          <div class="course-card">
+            <div class="course-header">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <h4>課程標準</h4>
+            </div>
+            <p class="course-introduce">查詢特定入學學期之課程標準資訊</p>
+          </div>
+        </a>
+      </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <div class="grid2">
+      <div class="block">
+        <i class="fa-solid fa-link"></i>
+        <span class="title">常用連結</span>
+        <hr>
+        <div class="linkcard">
+          <a href="https://nportal.ntut.edu.tw/index.do?thetime=1761978968598" target="_blank">
+            <div class="card-item">
+              <span class="text">北科校園入口網站</span>
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </div>
+          </a>
+          <a href="https://www.ntut.edu.tw/" target="_blank">
+            <div class="card-item">
+              <span class="text">北科校園首頁</span>
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </div>
+          </a>
+          <a href="https://lib.ntut.edu.tw/mp.asp?mp=100" target="_blank">
+            <div class="card-item">
+              <span class="text">台北科技大學圖書館</span>
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </div>
+          </a>
+          <a href="https://oaa.ntut.edu.tw/p/412-1008-15509.php?Lang=zh-tw" target="_blank">
+            <div class="card-item final">
+              <span class="text">跨域學習專區</span>
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="block">
+        <i class="fa-solid fa-calendar-days"></i>
+        <span class="title">學校行事曆</span>
+        <hr>
+        <div class="calendercard">
+          <span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/semester-sync.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

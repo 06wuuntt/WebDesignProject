@@ -10,8 +10,8 @@
    - [x] 首頁 main-container
 
 2. 班級課表頁面 (Class Schedule)
-   - [ ] 學院列表
-   - [ ] 班級列表
+   - [x] 學院列表
+   - [x] 班級列表
 
 3. 光電系課程頁面 (Electro-Optical Engineering)
    - [ ] 班級

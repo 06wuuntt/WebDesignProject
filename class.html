@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北科課程系統</title>
+    <link rel="stylesheet" href="css/class.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="sidebar">
+            <h2>北科課程系統</h2>
+            <select name="semester" id="semester" class="semester">
+                <option value="1141">114 上學期</option>
+                <option value="1132">113 下學期</option>
+                <option value="1131">113 上學期</option>
+                <option value="1122">112 下學期</option>
+                <option value="1121">112 上學期</option>
+            </select>
+            <nav class="menu-links">
+                <a href="index.html"><i class="fa-solid fa-house"></i> 首頁</a>
+                <a href="#"><i class="fa-solid fa-search"></i> 課程查詢</a>
+                <a href="class.html"><i class="fa-solid fa-school"></i> 班級課表</a>
+                <a href="#"><i class="fa-solid fa-calendar-days"></i> 行事曆</a>
+            </nav>
+        </header>
+        <div class="title">
+            <h1>班級總覽</h1>
+            <p class="introduce">依學院分類瀏覽全校所有班級開課課程，當前學期為 <strong id="current-semester">114 上學期</strong></p>
+        </div>
+        <main class="main-content">
+            <div id="results"></div>
+        </main>
+    </div>
+    <footer class="footer">
+        <p>北科課程系統｜內容可能有誤，詳細資訊請參考<a href="https://aps.ntut.edu.tw/course/tw/course.jsp">台北科技大學課程系統</a></p>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/semester-sync.js"></script>
+    <script src="js/class.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

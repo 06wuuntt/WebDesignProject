@@ -1,133 +1,114 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const select = document.getElementById('semester');
-    const current = document.getElementById('current-semester');
+$(function () {
+    var $select = $('#semester');
+    var $current = $('#current-semester');
 
-    if (!select || !current) return;
+    if (!$select.length || !$current.length) return;
 
     function updateSemesterText() {
-        // use the visible option text (e.g. "114 上學期")
-        const text = select.options[select.selectedIndex]?.text || '';
-        current.textContent = text;
+        var text = $select.find('option:selected').text() || '';
+        $current.text(text);
+        // persist selected semester value so other pages can read it
+        try {
+            localStorage.setItem('selectedSemester', $select.val() || '');
+        } catch (e) {
+            // ignore storage errors
+        }
     }
 
-    // update on change
-    select.addEventListener('change', updateSemesterText);
-
-    // initialize on load
+    $select.on('change', updateSemesterText);
     updateSemesterText();
 
-    /*
-     Create a lightweight custom dropdown to allow styling the popup (options list).
-     This keeps the original <select> for form submission but hides it visually.
-    */
     function createCustomDropdown(nativeSelect) {
-        // visually hide native select but keep it accessible
-        nativeSelect.style.position = 'absolute';
-        nativeSelect.style.opacity = 0;
-        nativeSelect.style.pointerEvents = 'none';
-        nativeSelect.style.width = '0';
+        var $native = $(nativeSelect);
+        $native.css({ position: 'absolute', opacity: 0, pointerEvents: 'none', width: 0 });
 
-        const wrapper = document.createElement('div');
-        wrapper.className = 'custom-select';
-        wrapper.tabIndex = 0;
+        var $wrapper = $('<div/>', { 'class': 'custom-select', tabindex: 0 });
+        var $button = $('<button/>', {
+            type: 'button',
+            'class': 'custom-selected',
+            'aria-haspopup': 'listbox',
+            'aria-expanded': 'false'
+        }).text($native.find('option:selected').text() || '');
 
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'custom-selected';
-        button.setAttribute('aria-haspopup', 'listbox');
-        button.setAttribute('aria-expanded', 'false');
-        button.textContent = nativeSelect.options[nativeSelect.selectedIndex]?.text || '';
+        var $list = $('<ul/>', { 'class': 'custom-options', role: 'listbox' });
 
-        const list = document.createElement('ul');
-        list.className = 'custom-options';
-        list.setAttribute('role', 'listbox');
+        $native.find('option').each(function (idx) {
+            var $opt = $(this);
+            var $li = $('<li/>', {
+                'class': 'custom-option',
+                role: 'option',
+                tabindex: 0,
+                'data-value': $opt.val()
+            }).text($opt.text());
 
-        Array.from(nativeSelect.options).forEach((opt, idx) => {
-            const li = document.createElement('li');
-            li.className = 'custom-option';
-            li.setAttribute('role', 'option');
-            li.dataset.value = opt.value;
-            li.textContent = opt.text;
-            if (idx === nativeSelect.selectedIndex) li.setAttribute('aria-selected', 'true');
-            list.appendChild(li);
+            if (idx === nativeSelect.selectedIndex) $li.attr('aria-selected', 'true');
 
-            li.addEventListener('click', function (e) {
-                // update native select
-                nativeSelect.value = this.dataset.value;
-                nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
-                // update button text
-                button.textContent = this.textContent;
-                // mark selected
-                list.querySelectorAll('.custom-option').forEach(o => o.removeAttribute('aria-selected'));
-                this.setAttribute('aria-selected', 'true');
+            $li.on('click', function () {
+                $native.val($(this).data('value')).trigger('change');
+                $button.text($(this).text());
+                $list.find('.custom-option').removeAttr('aria-selected');
+                $(this).attr('aria-selected', 'true');
                 close();
             });
+
+            $list.append($li);
         });
 
         function open() {
-            wrapper.classList.add('open');
-            button.setAttribute('aria-expanded', 'true');
+            $wrapper.addClass('open');
+            $button.attr('aria-expanded', 'true');
         }
 
         function close() {
-            wrapper.classList.remove('open');
-            button.setAttribute('aria-expanded', 'false');
+            $wrapper.removeClass('open');
+            $button.attr('aria-expanded', 'false');
         }
 
-        button.addEventListener('click', function (e) {
+        $button.on('click', function (e) {
             e.stopPropagation();
-            if (wrapper.classList.contains('open')) close(); else open();
+            if ($wrapper.hasClass('open')) close(); else open();
         });
 
-        // close when clicking outside
-        document.addEventListener('click', function (e) {
-            if (!wrapper.contains(e.target)) close();
+        $(document).on('click', function (e) {
+            if (!$.contains($wrapper[0], e.target)) close();
         });
 
-        // keyboard support (basic)
-        wrapper.addEventListener('keydown', function (e) {
-            const openNow = wrapper.classList.contains('open');
+        $wrapper.on('keydown', function (e) {
+            var openNow = $wrapper.hasClass('open');
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
                 if (!openNow) open();
-                const first = list.querySelector('.custom-option');
-                first && first.focus();
+                var $first = $list.find('.custom-option').first();
+                $first && $first.focus();
             } else if (e.key === 'Escape') {
                 close();
             }
         });
 
-        // allow option keyboard navigation
-        list.addEventListener('keydown', function (e) {
-            const focused = document.activeElement;
-            if (!focused.classList.contains('custom-option')) return;
+        $list.on('keydown', '.custom-option', function (e) {
+            var $focused = $(document.activeElement);
+            if (!$focused.hasClass('custom-option')) return;
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
-                const next = focused.nextElementSibling;
-                if (next) next.focus();
+                var $next = $focused.next('.custom-option');
+                if ($next.length) $next.focus();
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault();
-                const prev = focused.previousElementSibling;
-                if (prev) prev.focus();
+                var $prev = $focused.prev('.custom-option');
+                if ($prev.length) $prev.focus();
             } else if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                focused.click();
+                $focused.click();
             } else if (e.key === 'Escape') {
                 close();
-                button.focus();
+                $button.focus();
             }
         });
 
-        // make options focusable
-        list.querySelectorAll('.custom-option').forEach(li => li.tabIndex = 0);
-
-        wrapper.appendChild(button);
-        wrapper.appendChild(list);
-
-        // insert wrapper after native select
-        nativeSelect.parentNode.insertBefore(wrapper, nativeSelect.nextSibling);
+        $wrapper.append($button, $list);
+        $native.after($wrapper);
     }
 
-    // create the custom dropdown for this select
-    createCustomDropdown(select);
+    createCustomDropdown($select[0]);
 });
+
