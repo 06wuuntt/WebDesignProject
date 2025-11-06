@@ -293,6 +293,9 @@ a:hover {
 }
 
 .calendercard {
+    display: block;
+    text-align: center;
+    padding: 115px;
     background-color: #FFFFFF;
     height: 256px;
     border-radius: 8px;
